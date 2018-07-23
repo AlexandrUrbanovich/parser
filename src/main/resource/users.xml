@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <firstName>Andrei</firstName>
+        <lastName>Pecevich</lastName>
+	    <age>25</age>
+    </user>
+
+    <user>
+        <firstName>Vova</firstName>
+        <lastName>Pupkin</lastName>
+	    <age>21</age>
+    </user>
+
+    <user>
+        <firstName>Andrei</firstName>
+        <lastName>Muliarchick</lastName>
+	    <age>25</age>
+    </user>
+
+    <user>
+        <firstName>Dmitry</firstName>
+        <lastName>Klokav</lastName>
+	    <age>22</age>
+    </user>
+
+    <user>
+        <firstName>Tany</firstName>
+        <lastName>Zhukevich</lastName>
+	    <age>30</age>
+    </user>
+
+    <user>
+        <firstName>Kiril</firstName>
+        <lastName>Sokolovskiy</lastName>
+	    <age>26</age>
+    </user>
+
+    <user>
+        <firstName>Nata</firstName>
+        <lastName>Roi</lastName>
+	    <age>23</age>
+    </user>
+
+    <user>
+        <firstName>Alex</firstName>
+        <lastName>Lagvinenko</lastName>
+	    <age>24</age>
+    </user>
+
+    <user>
+        <firstName>Vika</firstName>
+        <lastName>Ivanova</lastName>
+	    <age>28</age>
+    </user>
+
+    <user>
+        <firstName>Dmitry</firstName>
+        <lastName>Stepanchuk</lastName>
+	    <age>28</age>
+    </user>
+
+</users>

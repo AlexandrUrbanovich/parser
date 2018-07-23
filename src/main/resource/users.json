@@ -1,0 +1,54 @@
+{
+  "users": [
+    {
+      "firstName" : "Andrei",
+      "lastName" : "Pecevich",
+      "age" : 25
+    },
+    {
+      "firstName" : "Vova",
+      "lastName" : "Pupkin",
+      "age" : 21
+    },
+    {
+      "firstName" : "Andrei",
+      "lastName" : "Muliarchick",
+      "age" : 25
+    },
+    {
+      "firstName" : "Dmitry",
+      "lastName" : "Klokav",
+      "age" : 22
+    },
+    {
+      "firstName" : "Tany",
+      "lastName" : "Zhukevich",
+      "age" : 30
+    },
+    {
+      "firstName" : "Kiril",
+      "lastName" : "Sokolovskiy",
+      "age" : 26
+    },
+    {
+      "firstName" : "Nata",
+      "lastName" : "Roi",
+      "age" : 23
+    },
+    {
+      "firstName" : "Alex",
+      "lastName" : "Lagvinenko",
+      "age" : 24
+    },
+    {
+      "firstName" : "Vika",
+      "lastName" : "Ivanova",
+      "age" : 18
+    },
+    {
+      "firstName" : "Dmitry",
+      "lastName" : "Stepanchuk",
+      "age" : 28
+    }
+  ]
+}
