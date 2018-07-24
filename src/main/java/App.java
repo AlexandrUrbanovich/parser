@@ -19,6 +19,5 @@ public class App {
 
         List<User> users = parser.parser();
         users.toString();
-
     }
 }
