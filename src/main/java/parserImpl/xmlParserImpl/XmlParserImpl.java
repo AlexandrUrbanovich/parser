@@ -1,5 +1,6 @@
 package parserImpl.xmlParserImpl;
 
+import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -13,15 +14,19 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class XmlParserImpl implements ParserI {
+
+    private static final Logger log = Logger.getLogger(String.valueOf(XmlParserImpl.class));
+
+    List<String> persons = new ArrayList<>();
 
     @Override
     public void parser() {
-        List<String> persons = new ArrayList<>();
 
         try{
             DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
-            Document document = documentBuilder.parse("src/main/resource/users.xml");
+            Document document = documentBuilder.parse("src/main/resources/users.xml");
             Node roote = document.getDocumentElement();
 
             NodeList users = roote.getChildNodes();
@@ -45,6 +50,7 @@ public class XmlParserImpl implements ParserI {
             e.printStackTrace(System.out);
         }
 
+        log.info("Data read from users.xml");
 
         System.out.println("List");
         for (String person : persons) {

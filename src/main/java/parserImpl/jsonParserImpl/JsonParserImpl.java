@@ -4,13 +4,17 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.apache.log4j.Logger;
 import parser.ParserI;
 
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class JsonParserImpl implements ParserI {
+
+    private static final Logger log = Logger.getLogger(String.valueOf(JsonParserImpl.class));
 
     private List<User> users = new ArrayList<User>();
 
@@ -18,15 +22,11 @@ public class JsonParserImpl implements ParserI {
         return users;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
     @Override
     public void parser() {
         try {
             JsonParser jsonParser = new JsonParser();
-            JsonObject objectJson = jsonParser.parse(new FileReader("src/main/resource/users.json")).getAsJsonObject();
+            JsonObject objectJson = jsonParser.parse(new FileReader("src/main/resources/users.json")).getAsJsonObject();
 
             JsonArray users = objectJson.getAsJsonArray("users");
 
@@ -44,10 +44,12 @@ public class JsonParserImpl implements ParserI {
             e.printStackTrace(System.out);
         }
 
+        log.info("Data read from users.json");
+
         System.out.println("List");
         for (User person : users) {
             System.out.println(person);
         }
-    }
 
+    }
 }
