@@ -1,5 +1,9 @@
 package parser;
 
+import parserImpl.User;
+
+import java.util.List;
+
 public interface ParserI {
-    void parser();
+    List<User> parser();
 }

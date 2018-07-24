@@ -2,10 +2,12 @@ package parserImpl.xmlParserImpl;
 
 import org.apache.log4j.Logger;
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import parser.ParserI;
+import parserImpl.User;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,42 +21,41 @@ public class XmlParserImpl implements ParserI {
 
     private static final Logger log = Logger.getLogger(String.valueOf(XmlParserImpl.class));
 
-    List<String> persons = new ArrayList<>();
-
     @Override
-    public void parser() {
-
+    public List<User> parser() {
+        List<User> users = new ArrayList<>();
         try{
             DocumentBuilder documentBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
             Document document = documentBuilder.parse("src/main/resources/users.xml");
             Node roote = document.getDocumentElement();
 
-            NodeList users = roote.getChildNodes();
+            NodeList userss = ((Element) roote).getElementsByTagName("user");
 
-            for (int i = 0; i < users.getLength(); i++) {
-                Node user = users.item(i);
+            for (int i = 0; i < userss.getLength(); i++) {
+                Node persons = userss.item(i);
 
-                if (user.getNodeType() != Node.TEXT_NODE) {
-                    NodeList userProperties =  user.getChildNodes();
+                if(Node.ELEMENT_NODE == persons.getNodeType()) {
+                    Element element = (Element) persons;
+                    String firstName = element.getElementsByTagName("firstName").item(0).getTextContent();
+                    String lastName = element.getElementsByTagName("lastName").item(0).getTextContent();
+                    Integer age = Integer.valueOf( element.getElementsByTagName("age").item(0).getTextContent());
 
-                    for (int j = 0; j < userProperties.getLength(); j++) {
-                        Node userPropertie = userProperties.item(j);
-
-                        if (userPropertie.getNodeType() != Node.TEXT_NODE) {
-                           persons.add(userPropertie.getNodeName() + " : " + userPropertie.getChildNodes().item(0).getTextContent());
-                       }
-                    }
+                    User currentUser = new User(firstName, lastName, age);
+                    users.add(currentUser);
                 }
+
             }
-        }catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace(System.out);
+        } catch (ParserConfigurationException | IOException | SAXException e) {
+            e.printStackTrace();
         }
 
         log.info("Data read from users.xml");
 
         System.out.println("List");
-        for (String person : persons) {
+        for (User person : users) {
             System.out.println(person);
         }
+
+        return users;
     }
 }

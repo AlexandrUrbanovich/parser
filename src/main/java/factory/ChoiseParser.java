@@ -12,7 +12,6 @@ public  class ChoiseParser {
     private static final Logger log = Logger.getLogger(String.valueOf(ChoiseParser.class));
 
     public ParserI getParser(String propertie){
-
         if (propertie.equals("xml")) {
             return new XmlParserImpl();
         }

@@ -1,7 +1,10 @@
-import dao.FileReader;
+import dao.PropertieFileReader;
 import factory.ChoiseParser;
 import org.apache.log4j.Logger;
 import parser.ParserI;
+import parserImpl.User;
+
+import java.util.List;
 
 
 public class App {
@@ -9,21 +12,13 @@ public class App {
     public static void main(String[] args) {
 
 
-        FileReader fileReader = new FileReader();
-        fileReader.readFile();
-        System.out.println(fileReader.getStringRepresentation());
+        PropertieFileReader propertieFileReader = new PropertieFileReader();
 
         ChoiseParser choiseParser = new ChoiseParser();
+        ParserI parser = choiseParser.getParser(propertieFileReader.getParserType());
 
+        List<User> users = parser.parser();
+        users.toString();
 
-        if (fileReader.getStringRepresentation().contains("xml")){
-            log.info("Set propertie XML");
-            ParserI parserI = choiseParser.getParser("xml");
-            System.out.println(parserI);
-        }if (fileReader.getStringRepresentation().contains("json")) {
-            log.info("Set propertie JSON");
-            ParserI parserI = choiseParser.getParser("json");
-            System.out.println(parserI);
-        }
     }
 }

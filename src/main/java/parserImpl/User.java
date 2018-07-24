@@ -1,4 +1,4 @@
-package parserImpl.jsonParserImpl;
+package parserImpl;
 
 public class User {
 
@@ -39,4 +39,8 @@ public class User {
         this.age = age;
     }
 
+    @Override
+    public String toString() {
+        return "User { " + " firstName = " + firstName + ", lastName = " + lastName + ", age = " + age + " } ";
+    }
 }

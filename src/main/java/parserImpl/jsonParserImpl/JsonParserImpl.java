@@ -6,6 +6,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import org.apache.log4j.Logger;
 import parser.ParserI;
+import parserImpl.User;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -16,28 +17,23 @@ public class JsonParserImpl implements ParserI {
 
     private static final Logger log = Logger.getLogger(String.valueOf(JsonParserImpl.class));
 
-    private List<User> users = new ArrayList<User>();
-
-    public List<User> getUsers() {
-        return users;
-    }
-
     @Override
-    public void parser() {
+    public List<User> parser() {
+        List<User> users = new ArrayList<>();
         try {
             JsonParser jsonParser = new JsonParser();
             JsonObject objectJson = jsonParser.parse(new FileReader("src/main/resources/users.json")).getAsJsonObject();
 
-            JsonArray users = objectJson.getAsJsonArray("users");
+            JsonArray usersJson = objectJson.getAsJsonArray("users");
 
-            for(JsonElement user : users){
+            for(JsonElement user : usersJson){
 
                 String firstName =  user.getAsJsonObject().get("firstName").getAsString();
                 String lastName =  user.getAsJsonObject().get("lastName").getAsString();
                 Integer age =  user.getAsJsonObject().get("age").getAsInt();
 
                 User currentUser = new User(firstName, lastName, age);
-                getUsers().add(currentUser);
+                users.add(currentUser);
             }
 
         }catch (Exception e){
@@ -50,6 +46,6 @@ public class JsonParserImpl implements ParserI {
         for (User person : users) {
             System.out.println(person);
         }
-
+        return users;
     }
 }
