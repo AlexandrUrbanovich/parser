@@ -4,8 +4,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import parser.xmlParser.XmlParserI;
-
+import parser.ParserI;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class XmlParserImpl implements XmlParserI {
+public class XmlParserImpl implements ParserI {
 
     @Override
     public void parser() {

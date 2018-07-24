@@ -4,13 +4,13 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import parser.jsonParser.JsonParserI;
+import parser.ParserI;
 
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JsonParserImpl implements JsonParserI {
+public class JsonParserImpl implements ParserI {
 
     private List<User> users = new ArrayList<User>();
 
@@ -40,13 +40,14 @@ public class JsonParserImpl implements JsonParserI {
                 getUsers().add(currentUser);
             }
 
-
         }catch (Exception e){
             e.printStackTrace(System.out);
         }
 
+        System.out.println("List");
+        for (User person : users) {
+            System.out.println(person);
+        }
     }
-
-
 
 }
