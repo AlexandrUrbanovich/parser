@@ -41,6 +41,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User { " + " firstName = " + firstName + ", lastName = " + lastName + ", age = " + age + " } ";
+        return "User { " + " firstName = " + firstName + '\t' +  "lastName = " + lastName + '\t' + "age = " + age + " } ";
     }
 }

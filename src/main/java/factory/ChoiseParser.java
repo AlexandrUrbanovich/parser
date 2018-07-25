@@ -13,9 +13,11 @@ public  class ChoiseParser {
 
     public ParserI getParser(String propertie){
         if (propertie.equals("xml")) {
+            log.info("Propertie equal XML");
             return new XmlParserImpl();
         }
         else if (propertie.equals("json")) {
+            log.info("Propertie equal JSON");
             return new JsonParserImpl();
         }
         log.info("Parser was choised");

@@ -42,6 +42,8 @@ public class XmlParserImpl implements ParserI {
 
                     User currentUser = new User(firstName, lastName, age);
                     users.add(currentUser);
+
+                    log.info("In User was added data from XML file");
                 }
 
             }

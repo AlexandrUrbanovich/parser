@@ -34,6 +34,8 @@ public class JsonParserImpl implements ParserI {
 
                 User currentUser = new User(firstName, lastName, age);
                 users.add(currentUser);
+
+                log.info("In User was added data from JSON file");
             }
 
         }catch (Exception e){
