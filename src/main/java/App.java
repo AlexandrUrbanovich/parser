@@ -5,6 +5,7 @@ import parser.ParserI;
 import parserImpl.User;
 
 import javax.jws.soap.SOAPBinding;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,7 +25,7 @@ public class App {
         System.out.println();
         log.info("Show collection from User list");
 
-/*
+
         users.sort(Comparator.comparing(User::getFirstName));
         System.out.println("Sorted collection by firstName");
         users.forEach(user -> System.out.println(user));
@@ -51,7 +52,6 @@ public class App {
         users.stream().filter(c -> c.getAge() == 23).collect(Collectors.toList()).forEach(user -> System.out.println(user));
         log.info("Show element collection consist of age equal smth");
 
-*/
 
 
 
