@@ -43,11 +43,13 @@ public class App {
         users.forEach(user -> System.out.println(user));
         log.info("Show collection sorted by age from User list");
 
+        System.out.println();
         System.out.println("Show element collection by given firstName");
         users.stream().filter(c -> c.getFirstName().equals("Andrei")).collect(Collectors.toList()).forEach(user -> System.out.println(user));
         System.out.println();
         log.info("Show element collection consist of firstName equal smth");
 
+        System.out.println();
         System.out.println("Show element collection by given age");
         users.stream().filter(c -> c.getAge() == 23).collect(Collectors.toList()).forEach(user -> System.out.println(user));
         log.info("Show element collection consist of age equal smth");
